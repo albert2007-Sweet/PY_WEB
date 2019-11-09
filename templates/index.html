@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Title</title>
+
+    <style>
+        .main_text{
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            width:100%;
+            position:absolute;
+            transform:translate(-50%, -50%);
+            color: white;
+        }
+        #title{
+            font-size:60px;
+            left:50%;
+            top:20%;
+        }
+        #made{
+            left:50%;
+            top:45%;
+            font-size:25px;
+        }
+        #menu{
+            left: 50%;
+            top :35%;
+            font-size:30px;
+        }
+        li{
+            list-style:none;
+            display: inline-block;
+            margin-left:50px;
+            margin-right:50px;
+            font-size:40px;
+        }
+        a{
+            text-decoration:none;
+            color:white;
+        }
+        #dlab{
+            color:orangered;
+        }
+        #username{
+            color:greenyellow;
+        }
+        li:hover{
+            background-color: rgba(255,20,147,0.3);
+         }
+
+    </style>
+</head>
+<body>
+    <iframe width="100%" height="1060" src="https://www.youtube.com/embed/KGlv9Lw4QSM?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h1 class="main_text" id="title">DJANGO FRAMEWORK</h1>
+    <h1 class="main_text" id="made">Made by
+        <span id="username">albert</span> &amp;
+        <span id="dlab">dlab</span>
+    </h1>
+
+    <ul class="main_text" id="menu">
+        <li><a href="{% url 'admin:index' %}">ADMIN</a></li>
+        <li><a href="{% url 'bookmark_index' %}">BOOKMARK</a></li>
+        <li><a href="{% url 'blog_index' %}">BLOG</a></li>
+
+
+    </ul>
+</body>
+</html>
