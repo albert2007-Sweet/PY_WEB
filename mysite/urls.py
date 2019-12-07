@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from mysite.views import Indexview
+from mysite.views import Indexview, UserCreateView, UserCreateDoneTV, aboutView
 from bookmark.views import BookMarkLV
 from bookmark.views import BookMarkDV
 from blog.views import PostLV, PostDV
@@ -27,9 +27,11 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Indexview.as_view(), name='index'),
-
+    url(r'^accounts/register/$', UserCreateView.as_view(), name='register'),
+    url(r'^accounts/register/done/$', UserCreateDoneTV.as_view(), name="register_done"),
     url(r'^bookmark/$', BookMarkLV.as_view(), name='bookmark_index'),
     url(r'^bookmark/(?P<pk>\d+)/$', BookMarkDV.as_view(),name='detail'),
     url(r'^blog/$', PostLV.as_view(), name='blog_index'),
-    url(r'^blog/(?P<pk>\d+)/$', PostDV.as_view(), name='blog_detail')
+    url(r'^blog/(?P<pk>\d+)/$', PostDV.as_view(), name='blog_detail'),
+    url(r'^about/$', aboutView.as_view(), name="about"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
